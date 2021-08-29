@@ -1,0 +1,6 @@
+There was a trap using data encoding.
+Some points can be clarified by removing this trap.
+
+xero.js line 156:
+-       return decrypted.toUint8Array().decodeutf8();
++       return decrypted.slice(0, 8).toUint8Array().decode()+decrypted.slice(8).toUint8Array().decodeutf8();
